@@ -9,10 +9,13 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 // Set up mongoose connection
 const mongoose = require('mongoose');
 const mongoDB =
-  'mongodb+srv://niko:Drone-Elliptic-Unpaid4-Earring-Thinly@cluster0.qnfl8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+  `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.qnfl8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUUUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:');
