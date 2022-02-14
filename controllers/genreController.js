@@ -1,4 +1,3 @@
-const { sortBy } = require('async');
 const Genre = require('../models/genre');
 
 // Display list of all Genres
