@@ -9,7 +9,7 @@ const AuthorSchema = new Schema({
 });
 
 // Virtual for author's full name
-AuthorSchema.virtual('name').get(() => {
+AuthorSchema.virtual('name').get(function () {
   let fullname = '';
   if (this.first_name && this.family_name) {
     fullname = `${this.family_name}, ${this.first_name}`;
@@ -20,7 +20,7 @@ AuthorSchema.virtual('name').get(() => {
 });
 
 // Virtual for author's lifespan
-AuthorSchema.virtual('lifespan').get(() => {
+AuthorSchema.virtual('lifespan').get(function () {
   let lifetime_string = '';
 
   if (this.date_of_birth) {
@@ -37,7 +37,7 @@ AuthorSchema.virtual('lifespan').get(() => {
 });
 
 // Virtual for author's URL
-AuthorSchema.virtual('url').get(() => {
+AuthorSchema.virtual('url').get(function () {
   return `/catalog/author/${this._id}`;
 });
 
